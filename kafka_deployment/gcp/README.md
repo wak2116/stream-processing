@@ -4,10 +4,9 @@ This readme describes the process to deploy a three node kafka cluster on the Go
 2) Create a new project
 3) Use the menu in the upper left corner to access the "Compute Engine" page
 4) Under "VM instances", use "CREATE INSTANCE" to create three VMs with the following attributes:  
-   [ Note: Estimated cost - $4.83 per month per VM ]  
    Region: us-east4 (Northern Virginia)  
    Zone: us-east4-c  
-   Machine type: micro  
+   Machine type: small  
    Boot disk: Ubuntu 18.04 LTS  
    "Allow HTTP traffic" is checked  
    "Allow HTTPS traffic" is checked  
