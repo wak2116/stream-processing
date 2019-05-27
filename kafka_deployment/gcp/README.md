@@ -77,7 +77,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
    : cd ~/zookeeper  
    : ./bin/zkServer.sh start ./conf/zookeeper.properties
    : ./bin/zkServer.sh status
-15: Start kafka
+15) Start kafka
    : cd ~/kafka  
    : ./bin/kafka-server-start.sh -daemon ./config/server.properties
 16) Repeat steps 8-15 on the remaining two VM instances
