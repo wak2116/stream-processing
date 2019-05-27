@@ -75,7 +75,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
 14) Start zookeeper  
    : cd ~/zookeeper  
    : bin/zkServer.sh start conf/zookeeper.properties  
-   : bin/zkServer.sh status  
+   : bin/zkServer.sh status conf/zookeeper.properties   
 15) Start kafka   
    : cd ~/kafka  
    : bin/kafka-server-start.sh -daemon config/server.properties
