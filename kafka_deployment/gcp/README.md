@@ -15,57 +15,57 @@ This readme describes the process to deploy a three node kafka cluster on the Go
 6) In the Google console, note the "External IP" addresses for each VM instance
 7) Select the first VM instance and launch an SSH seesion
 8) Download and install Apache Zookeeper
-  : wget https://www.apache.org/dist/zookeeper/KEYS
-  : gpg --import KEYS
-  : wget http://mirror.cc.columbia.edu/pub/software/apache/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5.tar.gz
-  : wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5.tar.gz.asc
-  : gpg --verify apache-zookeeper-3.5.5.tar.gz.asc apache-zookeeper-3.5.5.tar.gz
-  [ Note: verify that signature is good before proceeding ]
-  : tar -xzf apache-zookeeper-3.5.5.tar.gz
-  : ln -sfn apache-zookeeper-3.5.5 zookeeper
-  : rm KEYS apache-zookeeper-3.5.5.tar.gz apache-zookeeper-3.5.5.tar.gz.asc
+  : wget https://www.apache.org/dist/zookeeper/KEYS  
+  : gpg --import KEYS  
+  : wget http://mirror.cc.columbia.edu/pub/software/apache/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5.tar.gz  
+  : wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5.tar.gz.asc  
+  : gpg --verify apache-zookeeper-3.5.5.tar.gz.asc apache-zookeeper-3.5.5.tar.gz  
+  [ Note: verify that signature is good before proceeding ]  
+  : tar -xzf apache-zookeeper-3.5.5.tar.gz  
+  : ln -sfn apache-zookeeper-3.5.5 zookeeper  
+  : rm KEYS apache-zookeeper-3.5.5.tar.gz apache-zookeeper-3.5.5.tar.gz.asc  
 9) Download and install Apache Kafka
-  : wget https://www.apache.org/dist/kafka/KEYS
-  : gpg --import KEYS
-  : wget http://mirrors.ocf.berkeley.edu/apache/kafka/2.2.0/kafka_2.12-2.2.0.tgz
-  : wget https://www-eu.apache.org/dist/kafka/2.2.0/kafka_2.12-2.2.0.tgz.asc
-  : gpg --verify kafka_2.12-2.2.0.tgz.asc kafka_2.12-2.2.0.tgz
-  [ Note: verify that signature is good before proceeding ]
-  : tar -xzf kafka_2.12-2.2.0.tgz
-  : ln -sfn kafka_2.12-2.2.0 kafka
-  : rm KEYS kafka_2.12-2.2.0.tgz kafka_2.12-2.2.0.tgz.asc 
+  : wget https://www.apache.org/dist/kafka/KEYS  
+  : gpg --import KEYS  
+  : wget http://mirrors.ocf.berkeley.edu/apache/kafka/2.2.0/kafka_2.12-2.2.0.tgz  
+  : wget https://www-eu.apache.org/dist/kafka/2.2.0/kafka_2.12-2.2.0.tgz.asc  
+  : gpg --verify kafka_2.12-2.2.0.tgz.asc kafka_2.12-2.2.0.tgz  
+  [ Note: verify that signature is good before proceeding ]  
+  : tar -xzf kafka_2.12-2.2.0.tgz  
+  : ln -sfn kafka_2.12-2.2.0 kafka  
+  : rm KEYS kafka_2.12-2.2.0.tgz kafka_2.12-2.2.0.tgz.asc  
 10) Verify that your favorate text editor is installed
-  To install emacs on Ubuntu
-  : sudo apt-get update
-  : sudo apt-get install emacs
+  To install emacs on Ubuntu  
+  : sudo apt-get update  
+  : sudo apt-get install emacs  
 11) Configure zookeeper as a three node cluster
-  Create zookeeper myid file
-  [ Note: set myid to '1' for node 1, set myid to '2' for node 2, ... ]
-  : mkdir /tmp/zookeeper/ -p
-  : touch /tmp/zookeeper/myid
-  : echo '1' >> /tmp/zookeeper/myid
-  Create "zookeeper.properties" file 
-  : cd zookeeper/conf
-  : touch zookeeper.properties
-  Use your favorite text editor to add the following properties to "zookeeper.properties" file
-  [ Note: replace x.x.x.x with the cooresponding IP addresses obtained in Step 5 ] 
-      dataDir=/tmp/zookeeper
-      clientPort=2181
-      maxClientCnxns=200
-      tickTime=2000
-      server.1=x.x.x.x:2888:3888
-      server.2=x.x.x.x:2888:3888
-      server.3=x.x.x.x:2888:3888
-      initLimit=20
-      syncLimit=10
+  Create zookeeper myid file  
+  [ Note: set myid to '1' for node 1, set myid to '2' for node 2, ... ]  
+  : mkdir /tmp/zookeeper/ -p  
+  : touch /tmp/zookeeper/myid  
+  : echo '1' >> /tmp/zookeeper/myid  
+  Create "zookeeper.properties" file  
+  : cd zookeeper/conf  
+  : touch zookeeper.properties  
+  Use your favorite text editor to add the following properties to "zookeeper.properties" file  
+  [ Note: replace x.x.x.x with the cooresponding IP addresses obtained in Step 5 ]  
+      dataDir=/tmp/zookeeper  
+      clientPort=2181  
+      maxClientCnxns=200  
+      tickTime=2000  
+      server.1=x.x.x.x:2888:3888  
+      server.2=x.x.x.x:2888:3888   
+      server.3=x.x.x.x:2888:3888  
+      initLimit=20  
+      syncLimit=10  
 12) Congfigure kafka as a three node cluser
-  : cd ~/kafka/config
-  : cp server.properties server.properties.orig
-  Use your favorite text editor to set the following properties to "server.properties" file
-  [ Note: set broker.id to 1 for node 1, set broker.id to 2 for node 2, ... ]
-  [ Note: replace x.x.x.x with the cooresponding IP addresses obtained in Step 5 ]
-  [ Note: replace y.y.y.y with the cooresponding IP address obtained in Step 6 ]
-      broker.id=1
-      advertised.listeners=PLAINTEXT://y.y.y.y:9092
-      zookeeper.connect=x.x.x.x:2181,x.x.x.x:2181,x.x.x.x:2181
-13) Repeat steps 8-12 on the remaining two VM instances
+  : cd ~/kafka/config  
+  : cp server.properties server.properties.orig  
+  Use your favorite text editor to set the following properties to "server.properties" file  
+  [ Note: set broker.id to 1 for node 1, set broker.id to 2 for node 2, ... ]  
+  [ Note: replace x.x.x.x with the cooresponding IP addresses obtained in Step 5 ]  
+  [ Note: replace y.y.y.y with the cooresponding IP address obtained in Step 6 ]  
+      broker.id=1  
+      advertised.listeners=PLAINTEXT://y.y.y.y:9092  
+      zookeeper.connect=x.x.x.x:2181,x.x.x.x:2181,x.x.x.x:2181  
+13) Repeat steps 8-12 on the remaining two VM instances  
