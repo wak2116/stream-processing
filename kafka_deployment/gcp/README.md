@@ -72,7 +72,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
       broker.id=1  
       advertised.listeners=PLAINTEXT://y.y.y.y:9092  
       zookeeper.connect=x.x.x.x:2181,x.x.x.x:2181,x.x.x.x:2181  
-14) Start zookeeper
+14) Start zookeeper  
    : cd ~/zookeeper  
    : bin/zkServer.sh start conf/zookeeper.properties  
    : bin/zkServer.sh status  
