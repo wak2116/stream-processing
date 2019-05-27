@@ -68,4 +68,11 @@ This readme describes the process to deploy a three node kafka cluster on the Go
       broker.id=1  
       advertised.listeners=PLAINTEXT://y.y.y.y:9092  
       zookeeper.connect=x.x.x.x:2181,x.x.x.x:2181,x.x.x.x:2181  
-13) Repeat steps 8-12 on the remaining two VM instances  
+13) Start zookeeper
+   : cd ~/zookeeper  
+   : ./bin/zkServer.sh start ./conf/zookeeper.properties
+   : ./bin/zkServer.sh status
+14: Start kafka
+   : cd ~/kafka
+   : ./bin/kafka-server-start.sh -daemon ./config/server.properties
+15) Repeat steps 8-14 on the remaining two VM instances  
