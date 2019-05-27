@@ -6,15 +6,15 @@ This readme describes the process to deploy a three node kafka cluster on the Go
 5) In the Google console, note the "External IP" addresses for each VM instance
 6) Select the first VM instance and launch an SSH seesion
 7) Download and install Apache Zookeeper
-  : wget https://www.apache.org/dist/zookeeper/KEYS
-  : gpg --import KEYS
-  : wget http://mirror.cc.columbia.edu/pub/software/apache/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5.tar.gz
-  : wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5.tar.gz.asc
-  : gpg --verify apache-zookeeper-3.5.5.tar.gz.asc apache-zookeeper-3.5.5.tar.gz
-  [ Note: verify that signature is good before proceeding ]
-  : tar -xzf apache-zookeeper-3.5.5.tar.gz
-  : ln -sfn apache-zookeeper-3.5.5 zookeeper
-  : rm KEYS apache-zookeeper-3.5.5.tar.gz apache-zookeeper-3.5.5.tar.gz.asc
+  -: wget https://www.apache.org/dist/zookeeper/KEYS
+  -: gpg --import KEYS
+  -: wget http://mirror.cc.columbia.edu/pub/software/apache/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5.tar.gz
+  -: wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5.tar.gz.asc
+  -: gpg --verify apache-zookeeper-3.5.5.tar.gz.asc apache-zookeeper-3.5.5.tar.gz
+  -[ Note: verify that signature is good before proceeding ]
+  -: tar -xzf apache-zookeeper-3.5.5.tar.gz
+  -: ln -sfn apache-zookeeper-3.5.5 zookeeper
+  -: rm KEYS apache-zookeeper-3.5.5.tar.gz apache-zookeeper-3.5.5.tar.gz.asc
 8) Download and install Apache Kafka
   : wget https://www.apache.org/dist/kafka/KEYS
   : gpg --import KEYS
