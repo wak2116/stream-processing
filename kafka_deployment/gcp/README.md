@@ -35,8 +35,8 @@ This readme describes the process to deploy a three node kafka cluster on the Go
   : rm KEYS kafka_2.12-2.2.0.tgz kafka_2.12-2.2.0.tgz.asc  
 10) Install Java
   : sudo add-apt-repository ppa:webupd8team/java  
-  : sudo apt update
-  : sudo apt install default-jre 
+  : sudo apt update  
+  : sudo apt install default-jre   
   : java --version  
 11) Verify that your favorate text editor is installed
   To install emacs on Ubuntu  
