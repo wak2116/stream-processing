@@ -34,11 +34,16 @@ This readme describes the process to deploy a three node kafka cluster on the Go
   : tar -xzf kafka_2.12-2.2.0.tgz  
   : ln -sfn kafka_2.12-2.2.0 kafka  
   : rm KEYS kafka_2.12-2.2.0.tgz kafka_2.12-2.2.0.tgz.asc  
-10) Verify that your favorate text editor is installed
+10) Install Java
+  : sudo add-apt-repository ppa:webupd8team/java  
+  : sudo apt update
+  : sudo apt install default-jre 
+  : java --version  
+11) Verify that your favorate text editor is installed
   To install emacs on Ubuntu  
   : sudo apt-get update  
   : sudo apt-get install emacs  
-11) Configure zookeeper as a three node cluster
+12) Configure zookeeper as a three node cluster
   Create zookeeper myid file  
   [ Note: set myid to '1' for node 1, set myid to '2' for node 2, ... ]  
   : mkdir /tmp/zookeeper/ -p  
@@ -58,7 +63,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
       server.3=x.x.x.x:2888:3888  
       initLimit=20  
       syncLimit=10  
-12) Congfigure kafka as a three node cluser
+13) Congfigure kafka as a three node cluser
   : cd ~/kafka/config  
   : cp server.properties server.properties.orig  
   Use your favorite text editor to set the following properties to "server.properties" file  
@@ -68,11 +73,11 @@ This readme describes the process to deploy a three node kafka cluster on the Go
       broker.id=1  
       advertised.listeners=PLAINTEXT://y.y.y.y:9092  
       zookeeper.connect=x.x.x.x:2181,x.x.x.x:2181,x.x.x.x:2181  
-13) Start zookeeper
+14) Start zookeeper
    : cd ~/zookeeper  
    : ./bin/zkServer.sh start ./conf/zookeeper.properties
    : ./bin/zkServer.sh status
-14: Start kafka
+15: Start kafka
    : cd ~/kafka
    : ./bin/kafka-server-start.sh -daemon ./config/server.properties
-15) Repeat steps 8-14 on the remaining two VM instances  
+16) Repeat steps 8-15 on the remaining two VM instances
