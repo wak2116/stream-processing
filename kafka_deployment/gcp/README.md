@@ -39,16 +39,15 @@ This readme describes the process to deploy a three node kafka cluster on the Go
   : sudo apt install default-jre   
   : java --version  
 11) Verify that your favorate text editor is installed
-  To install emacs on Ubuntu  
-  : sudo apt-get update  
-  : sudo apt-get install emacs  
+  To install emacs on Ubuntu    
+  : sudo apt-get update    
+  : sudo apt-get install emacs    
 12) Configure zookeeper as a three node cluster
   Create zookeeper myid file  
   [ Note: set myid to '1' for node 1, set myid to '2' for node 2, ... ]  
   : mkdir /data/zookeeper/ -p  
   : touch /data/zookeeper/myid  
-  : echo '1' >> /data/zookeeper/myid
-  Create zookeeper data directory
+  : echo '1' >> /data/zookeeper/myid   
   Create "zookeeper.properties" file  
   : cd zookeeper/conf  
   : touch zookeeper.properties  
