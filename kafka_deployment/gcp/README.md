@@ -22,7 +22,6 @@ This readme describes the process to deploy a three node kafka cluster on the Go
   [ Note: verify that signature is good before proceeding ]  
   : tar -xzf apache-zookeeper-3.5.5.tar.gz  
   : ln -sfn apache-zookeeper-3.5.5 zookeeper  
-  : sudo mkdir -p /data/zookeeper  
   : rm KEYS apache-zookeeper-3.5.5.tar.gz apache-zookeeper-3.5.5.tar.gz.asc  
 9) Download and install Apache Kafka
   : wget https://www.apache.org/dist/kafka/KEYS  
@@ -48,13 +47,15 @@ This readme describes the process to deploy a three node kafka cluster on the Go
   [ Note: set myid to '1' for node 1, set myid to '2' for node 2, ... ]  
   : mkdir /tmp/zookeeper/ -p  
   : touch /tmp/zookeeper/myid  
-  : echo '1' >> /tmp/zookeeper/myid  
+  : echo '1' >> /tmp/zookeeper/myid
+  Create zookeeper data directory  
+  : sudo mkdir -p /data/zookeeper  
   Create "zookeeper.properties" file  
   : cd zookeeper/conf  
   : touch zookeeper.properties  
   Use your favorite text editor to add the following properties to "zookeeper.properties" file  
   [ Note: replace x.x.x.x with the cooresponding IP addresses obtained in Step 5 ]  
-      dataDir=/tmp/zookeeper  
+      dataDir=/data/zookeeper  
       clientPort=2181  
       maxClientCnxns=200  
       tickTime=2000  
