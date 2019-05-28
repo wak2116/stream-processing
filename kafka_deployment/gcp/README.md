@@ -22,6 +22,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
   [ Note: verify that signature is good before proceeding ]  
   : tar -xzf apache-zookeeper-3.5.5.tar.gz  
   : ln -sfn apache-zookeeper-3.5.5 zookeeper  
+  : sudo mkdir -p /data/zookeeper  
   : rm KEYS apache-zookeeper-3.5.5.tar.gz apache-zookeeper-3.5.5.tar.gz.asc  
 9) Download and install Apache Kafka
   : wget https://www.apache.org/dist/kafka/KEYS  
