@@ -49,20 +49,15 @@ This readme describes the process to deploy a three node kafka cluster on the Go
   : sudo chown -R your_username:your_username /data   
   : touch /data/zookeeper/myid  
   : echo '1' >> /data/zookeeper/myid   
-  Create "zookeeper.properties" file  
-  : cd zookeeper/conf  
+  Create "zoo.cfg" file  
+  : cd ~/zookeeper/conf  
   : cp zoo_sample.cfg zoo.cfg  
-  Use your favorite text editor to set the following properties to "zookeeper.properties" file  
+  Use your favorite text editor to set the following properties to "zoo.cfg" file  
   [ Note: replace x.x.x.x with the cooresponding IP addresses obtained in Step 5 ]  
-      dataDir=/data/zookeeper  
-      clientPort=2181  
-      maxClientCnxns=200  
-      tickTime=2000  
+      dataDir=/data/zookeeper
       server.1=x.x.x.x:2888:3888  
       server.2=x.x.x.x:2888:3888   
       server.3=x.x.x.x:2888:3888  
-      initLimit=20  
-      syncLimit=10  
 13) Congfigure kafka as a three node cluser
   : cd ~/kafka/config  
   : cp server.properties server.properties.orig  
