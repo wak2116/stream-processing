@@ -36,7 +36,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
 13) Configure zookeeper as a three node cluster
   Create zookeeper myid file  
   [ Note: set myid to '1' for node 1, set myid to '2' for node 2, ... ]  
-  : sudo mkdir /data/zookeeper/ -p. 
+  : sudo mkdir /data/zookeeper/ -p   
   : sudo chown -R your_username:your_username /data   
   : touch /data/zookeeper/myid  
   : echo '1' >> /data/zookeeper/myid   
