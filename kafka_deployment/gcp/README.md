@@ -33,7 +33,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
   To install emacs on Ubuntu    
   : sudo apt-get update    
   : sudo apt-get install emacs    
-14) Configure zookeeper as a three node cluster
+13) Configure zookeeper as a three node cluster
   Create zookeeper myid file  
   [ Note: set myid to '1' for node 1, set myid to '2' for node 2, ... ]  
   : sudo mkdir /data/zookeeper/ -p. 
@@ -49,12 +49,12 @@ This readme describes the process to deploy a three node kafka cluster on the Go
       server.1=x.x.x.x:2888:3888  
       server.2=x.x.x.x:2888:3888   
       server.3=x.x.x.x:2888:3888   
-15) Start zookeeper  
+14) Start zookeeper  
    : cd ~/zookeeper  
    : bin/zkServer.sh start conf/zoo.cfg  
    : bin/zkServer.sh status conf/zoo.cfg   
-16) Repeat steps 10 through 15 for the other VM instances
-17) Download and install Apache Kafka
+15) Repeat steps 10 through 14 for the other VM instances
+16) Download and install Apache Kafka
   : wget https://www.apache.org/dist/kafka/KEYS  
   : gpg --import KEYS  
   : wget http://mirrors.ocf.berkeley.edu/apache/kafka/2.2.0/kafka_2.12-2.2.0.tgz  
@@ -64,7 +64,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
   : tar -xzf kafka_2.12-2.2.0.tgz  
   : ln -sfn kafka_2.12-2.2.0 kafka  
   : rm KEYS kafka_2.12-2.2.0.tgz kafka_2.12-2.2.0.tgz.asc  
-18) Congfigure kafka as a three node cluser
+17) Congfigure kafka as a three node cluser  
   : cd ~/kafka/config  
   : cp server.properties server.properties.orig  
   Use your favorite text editor to set the following properties to "server.properties" file  
@@ -74,7 +74,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
       broker.id=1  
       advertised.listeners=PLAINTEXT://y.y.y.y:9092  
       zookeeper.connect=x.x.x.x:2181,x.x.x.x:2181,x.x.x.x:2181  
-19) Start kafka   
+18) Start kafka   
    : cd ~/kafka  
    : sudo bin/kafka-server-start.sh -daemon config/server.properties
-20) Repeat steps 17 through 19 for the other VM instances
+19) Repeat steps 16 through 18 for the other VM instances
