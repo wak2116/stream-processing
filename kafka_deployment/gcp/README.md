@@ -51,7 +51,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
       server.3=x.x.x.x:2888:3888   
 15) Start zookeeper  
    : cd ~/zookeeper  
-   : bin/zkServer.sh start conf/zoo.cfg
+   : bin/zkServer.sh start conf/zoo.cfg. 
    : bin/zkServer.sh status conf/zoo.cfg   
 16) Repeat steps 10 through 15 for the other VM instances
 17) Download and install Apache Kafka
