@@ -54,7 +54,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
    : bin/zkServer.sh start conf/zoo.cfg  
    : bin/zkServer.sh status conf/zoo.cfg   
 15) Repeat steps 10 through 14 for the other VM instances
-16) Download and install Apache Kafka
+16) Download and install Apache Kafka  
   : wget https://www.apache.org/dist/kafka/KEYS  
   : gpg --import KEYS  
   : wget http://mirrors.ocf.berkeley.edu/apache/kafka/2.2.0/kafka_2.12-2.2.0.tgz  
