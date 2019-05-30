@@ -22,7 +22,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
 11) Download and install Apache Zookeeper  
   : wget https://www.apache.org/dist/zookeeper/KEYS  
   : gpg --import KEYS  
-  : wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5-bin.tar.gz 
+  : wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5-bin.tar.gz   
   : wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5-bin.tar.gz.asc  
   : gpg --verify apache-zookeeper-3.5.5-bin.tar.gz.asc apache-zookeeper-3.5.5-bin.tar.gz  
   [ Note: verify that signature is good before proceeding ]  
