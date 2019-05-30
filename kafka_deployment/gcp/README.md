@@ -45,7 +45,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
   : cp zoo_sample.cfg zoo.cfg  
   Use your favorite text editor to set the following properties to "zoo.cfg" file  
   [ Note: replace x.x.x.x with the cooresponding IP addresses obtained in Step 5 ]  
-      dataDir=/data/zookeeper
+      dataDir=/data/zookeeper  
       server.1=x.x.x.x:2888:3888  
       server.2=x.x.x.x:2888:3888   
       server.3=x.x.x.x:2888:3888   
