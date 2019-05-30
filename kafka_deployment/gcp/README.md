@@ -15,32 +15,21 @@ This readme describes the process to deploy a three node kafka cluster on the Go
 7) Add firewall exceptions to support internal communication between VM instances
 8) Add firewall exceptions to support client connections to VM instances
 9) Select the first VM instance and launch an SSH seesion
-10) Download and install Apache Zookeeper  
+10) Install Java  
+  : sudo apt-get update  
+  : sudo apt-get install default-jre   
+  : java --version  
+11) Download and install Apache Zookeeper  
   : wget https://www.apache.org/dist/zookeeper/KEYS  
   : gpg --import KEYS  
-  : wget http://mirror.cc.columbia.edu/pub/software/apache/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz  
-  : wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz.asc  
-  : gpg --verify zookeeper-3.4.14.tar.gz.asc zookeeper-3.4.14.tar.gz  
+  : wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5-bin.tar.gz 
+  : wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5-bin.tar.gz.asc  
+  : gpg --verify apache-zookeeper-3.5.5-bin.tar.gz.asc apache-zookeeper-3.5.5-bin.tar.gz  
   [ Note: verify that signature is good before proceeding ]  
-  : tar -xzf zookeeper-3.4.14.tar.gz  
-  : ln -sfn zookeeper-3.4.14 zookeeper  
-  : rm KEYS zookeeper-3.4.14.tar.gz zookeeper-3.4.14.tar.gz.asc  
-11) Download and install Apache Kafka
-  : wget https://www.apache.org/dist/kafka/KEYS  
-  : gpg --import KEYS  
-  : wget http://mirrors.ocf.berkeley.edu/apache/kafka/2.2.0/kafka_2.12-2.2.0.tgz  
-  : wget https://www-eu.apache.org/dist/kafka/2.2.0/kafka_2.12-2.2.0.tgz.asc  
-  : gpg --verify kafka_2.12-2.2.0.tgz.asc kafka_2.12-2.2.0.tgz  
-  [ Note: verify that signature is good before proceeding ]  
-  : tar -xzf kafka_2.12-2.2.0.tgz  
-  : ln -sfn kafka_2.12-2.2.0 kafka  
-  : rm KEYS kafka_2.12-2.2.0.tgz kafka_2.12-2.2.0.tgz.asc  
-12) Install Java
-  : sudo add-apt-repository ppa:webupd8team/java  
-  : sudo apt update  
-  : sudo apt install default-jre   
-  : java --version  
-13) Verify that your favorate text editor is installed
+  : tar -xzf apache-zookeeper-3.5.5-bin.tar.gz  
+  : ln -sfn apache-zookeeper-3.5.5-bin zookeeper  
+  : rm KEYS apache-zookeeper-3.5.5-bin.tar.gz apache-zookeeper-3.5.5-bin.tar.gz.asc
+12) Verify that your favorate text editor is installed
   To install emacs on Ubuntu    
   : sudo apt-get update    
   : sudo apt-get install emacs    
@@ -59,8 +48,23 @@ This readme describes the process to deploy a three node kafka cluster on the Go
       dataDir=/data/zookeeper
       server.1=x.x.x.x:2888:3888  
       server.2=x.x.x.x:2888:3888   
-      server.3=x.x.x.x:2888:3888  
-15) Congfigure kafka as a three node cluser
+      server.3=x.x.x.x:2888:3888   
+15) Start zookeeper  
+   : cd ~/zookeeper  
+   : bin/zkServer.sh start conf/zoo.cfg
+   : bin/zkServer.sh status conf/zoo.cfg   
+16) Repeat steps 10 through 15 for the other VM instances
+17) Download and install Apache Kafka
+  : wget https://www.apache.org/dist/kafka/KEYS  
+  : gpg --import KEYS  
+  : wget http://mirrors.ocf.berkeley.edu/apache/kafka/2.2.0/kafka_2.12-2.2.0.tgz  
+  : wget https://www-eu.apache.org/dist/kafka/2.2.0/kafka_2.12-2.2.0.tgz.asc  
+  : gpg --verify kafka_2.12-2.2.0.tgz.asc kafka_2.12-2.2.0.tgz  
+  [ Note: verify that signature is good before proceeding ]  
+  : tar -xzf kafka_2.12-2.2.0.tgz  
+  : ln -sfn kafka_2.12-2.2.0 kafka  
+  : rm KEYS kafka_2.12-2.2.0.tgz kafka_2.12-2.2.0.tgz.asc  
+18) Congfigure kafka as a three node cluser
   : cd ~/kafka/config  
   : cp server.properties server.properties.orig  
   Use your favorite text editor to set the following properties to "server.properties" file  
@@ -70,11 +74,7 @@ This readme describes the process to deploy a three node kafka cluster on the Go
       broker.id=1  
       advertised.listeners=PLAINTEXT://y.y.y.y:9092  
       zookeeper.connect=x.x.x.x:2181,x.x.x.x:2181,x.x.x.x:2181  
-16) Start zookeeper  
-   : cd ~/zookeeper  
-   : sudo bin/zkServer.sh start conf/zookeeper.properties  
-   : sudo bin/zkServer.sh status conf/zookeeper.properties   
-17) Start kafka   
+19) Start kafka   
    : cd ~/kafka  
    : sudo bin/kafka-server-start.sh -daemon config/server.properties
-18) Repeat steps 10-17 on the remaining two VM instances
+20) Repeat steps 17 through 19 for the other VM instances
