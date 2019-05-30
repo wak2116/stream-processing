@@ -12,8 +12,8 @@ This readme describes the process to deploy a three node kafka cluster on the Go
    "Allow HTTPS traffic" is checked  
 5) In the Google console, note the "Internal IP" addresses for each VM instance
 6) In the Google console, note the "External IP" addresses for each VM instance  
-7) Add firewall exceptions to support internal communication between VM instances
-8) Add firewall exceptions to support client connections to VM instances
+7) Add firewall exceptions to support internal communication between VM instances (zookeeper: ports 2181, 2888, 3888) 
+8) Add firewall exceptions to support client connections to VM instances (kafka: port 9092)
 9) Select the first VM instance and launch an SSH seesion
 10) Install Java  
   : sudo apt-get update  
