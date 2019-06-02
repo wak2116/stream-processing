@@ -8,5 +8,5 @@ python 3.7,
 apache-zookeeper-3.5.5-bin,
 kafka_2.12-2.2.0
 
-Source code was generated in PyCharm 2019.1.2. 
+Source code was generated in PyCharm 2019.1.2   
 Code can be run from the command line, but no effort has been taken (to date) to package it for use outside of the IDE.  
