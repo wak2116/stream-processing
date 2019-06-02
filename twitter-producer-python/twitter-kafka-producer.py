@@ -30,10 +30,10 @@ __version__ = '0.0.1'
 __status__ = 'Development'
 
 # set twitter attributes
-consumer_token = "0u0otpx8210Aq9xsOCk9nAZz9"
-consumer_secret = "7EjAzixmA7Boncir8gwO3imPrzp4N18nYcpzPUaWm6igVw1d2G"
-access_key = "1099110306591199233-nXHUGDsoz6VUqbtF1YG0m1wZd0JDVl"
-access_secret = "y7suFGLDoQkpGpOqefXZsPSWqSRCo9v4WUxNEIzjmEzfS"
+consumer_token = "INSERT TWITTER CONSUMER_TOKEN HERE"
+consumer_secret = "INSERT TWITTER CONSUMER_SECRET"
+access_key = "INSERT TWITTER KEY HERE"
+access_secret = "INSERT TWITTER SECRET HERE"
 auth = tweepy.OAuthHandler(consumer_token, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
