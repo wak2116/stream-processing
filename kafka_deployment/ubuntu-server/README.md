@@ -22,7 +22,7 @@ This file documents the installation process to run a standalone kafka + spark s
 3.5) cd ~/zookeeper/conf   
 3.6) cp zoo_sample.cfg zoo.cfg   
 3.7) Use your favorite text editor to set the following properties to "zoo.cfg" file  
-Note: In the step, replace "x.x.x.x" with the internally facing IP addresss for the server you are ssh'd into    
+Note: In this step, replace "x.x.x.x" with the internally facing IP addresss for the server you are ssh'd into    
 dataDir=/data/zookeeper  
 server.1=x.x.x.x:2888:3888  
 4) Next step
