@@ -38,3 +38,12 @@ server.1=x.x.x.x:2888:3888
 (5.8) tar -xzf kafka_2.12-2.2.0.tgz  
 (5.9) ln -sfn kafka_2.12-2.2.0 kafka  
 (5.10) rm KEYS kafka_2.12-2.2.0.tgz kafka_2.12-2.2.0.tgz.asc  
+6) Configure kafka as a standalone instance  
+(6.1) cd ~/kafka/config  
+(6.2) cp server.properties server.properties.orig. 
+(6.3) Use your favorite text editor to set the following properties to "server.properties" file  
+(6.4) Note: In this step, replace "x.x.x.x" with the internally facing IP addresss for the server you are ssh'd into  
+(6.5) Note: In this steop replace "y.y.y.y" with the externally facing IP addresss for the server you are ssh'd into  
+broker.id=1  
+advertised.listeners=PLAINTEXT://y.y.y.y:9092  
+zookeeper.connect=x.x.x.x:2181  
