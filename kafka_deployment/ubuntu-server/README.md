@@ -43,7 +43,9 @@ Note: In this step, replace "x.x.x.x" with the internally facing IP addresss for
 (6.2) cp server.properties server.properties.orig   
 (6.3) Use your favorite text editor to set the following properties to "server.properties" file  
 Note: In this step, replace "x.x.x.x" with the internally facing IP addresss for the server you are ssh'd into  
-Note: In this steop replace "y.y.y.y" with the externally facing IP addresss for the server you are ssh'd into  
+Note: In this step replace "y.y.y.y" with the externally facing IP addresss for the server you are ssh'd into  
   broker.id=1  
   advertised.listeners=PLAINTEXT://y.y.y.y:9092  
   zookeeper.connect=x.x.x.x:2181  
+7) Start kafka
+
