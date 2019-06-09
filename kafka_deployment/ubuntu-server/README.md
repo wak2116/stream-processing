@@ -47,5 +47,5 @@ Note: In this step replace "y.y.y.y" with the externally facing IP addresss for 
   broker.id=1  
   advertised.listeners=PLAINTEXT://y.y.y.y:9092  
   zookeeper.connect=x.x.x.x:2181  
-7) Start kafka
-
+7) Start kafka  
+(7.1) ~/kafka/bin/kafka-server-start.sh -daemon ~/kafka/config/server.properties &
