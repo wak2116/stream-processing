@@ -23,8 +23,8 @@ This file documents the installation process to run a standalone kafka + spark s
 3.6) cp zoo_sample.cfg zoo.cfg   
 3.7) Use your favorite text editor to set the following properties to "zoo.cfg" file  
 Note: In this step, replace "x.x.x.x" with the internally facing IP addresss for the server you are ssh'd into    
-dataDir=/data/zookeeper  
-server.1=x.x.x.x:2888:3888  
+  dataDir=/data/zookeeper  
+  server.1=x.x.x.x:2888:3888  
 4) Start zookeeper  
 (4.1) ~/zookeeper/bin/zkServer.sh start ~/zookeeper/conf/zoo.cfg
 5) Download and install Apache Kafka  
@@ -44,6 +44,6 @@ server.1=x.x.x.x:2888:3888
 (6.3) Use your favorite text editor to set the following properties to "server.properties" file  
 Note: In this step, replace "x.x.x.x" with the internally facing IP addresss for the server you are ssh'd into  
 Note: In this steop replace "y.y.y.y" with the externally facing IP addresss for the server you are ssh'd into  
-broker.id=1  
-advertised.listeners=PLAINTEXT://y.y.y.y:9092  
-zookeeper.connect=x.x.x.x:2181  
+  broker.id=1  
+  advertised.listeners=PLAINTEXT://y.y.y.y:9092  
+  zookeeper.connect=x.x.x.x:2181  
