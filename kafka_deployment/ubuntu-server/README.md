@@ -25,4 +25,5 @@ This file documents the installation process to run a standalone kafka + spark s
 Note: In this step, replace "x.x.x.x" with the internally facing IP addresss for the server you are ssh'd into    
 dataDir=/data/zookeeper  
 server.1=x.x.x.x:2888:3888  
-4) Next step
+4) Start zookeeper  
+(4.1) ~/zookeeper/bin/zkServer.sh start ~/zookeeper/conf/zoo.cfg
