@@ -54,9 +54,9 @@ Note: In this step replace "y.y.y.y" with the externally facing IP addresss for 
 (8.1) wget https://www.apache.org/dist/spark/KEYS  
 (8.2) gpg --import KEYS  
 (8.3) wget http://mirror.cc.columbia.edu/pub/software/apache/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz 
-(8.4) wget   
-(8.5) gpg --verify apache-zookeeper-3.5.5-bin.tar.gz.asc apache-zookeeper-3.5.5-bin.tar.gz  
+(8.4) wget https://www-eu.apache.org/dist/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz.asc 
+(8.5) gpg --verify spark-2.4.3-bin-hadoop2.7.tgz.asc spark-2.4.3-bin-hadoop2.7.tgz  
 (8.6) Note: verify that signature is good before proceeding  
-(8.7) tar -xzf apache-zookeeper-3.5.5-bin.tar.gz  
-(8.8) ln -sfn apache-zookeeper-3.5.5-bin zookeeper  
-(8.9) rm KEYS apache-zookeeper-3.5.5-bin.tar.gz apache-zookeeper-3.5.5-bin.tar.gz.asc
+(8.7) tar -xzf spark-2.4.3-bin-hadoop2.7.tgz  
+(8.8) ln -sfn spark-2.4.3-bin-hadoop2.7 spark  
+(8.9) rm KEYS spark-2.4.3-bin-hadoop2.7.tgz spark-2.4.3-bin-hadoop2.7.tgz.asc  
