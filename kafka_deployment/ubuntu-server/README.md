@@ -27,3 +27,14 @@ dataDir=/data/zookeeper
 server.1=x.x.x.x:2888:3888  
 4) Start zookeeper  
 (4.1) ~/zookeeper/bin/zkServer.sh start ~/zookeeper/conf/zoo.cfg
+5) Download and install Apache Kafka  
+(5.1) cd ~  
+(5.2) wget https://www.apache.org/dist/kafka/KEYS   
+(5.3) gpg --import KEYS  
+(5.4) wget http://mirrors.ocf.berkeley.edu/apache/kafka/2.2.0/kafka_2.12-2.2.0.tgz  
+(5.5) wget https://www-eu.apache.org/dist/kafka/2.2.0/kafka_2.12-2.2.0.tgz.asc  
+(5.6) gpg --verify kafka_2.12-2.2.0.tgz.asc kafka_2.12-2.2.0.tgz  
+(5.7) Note: verify that signature is good before proceeding  
+(5.8) tar -xzf kafka_2.12-2.2.0.tgz  
+(5.9) ln -sfn kafka_2.12-2.2.0 kafka  
+(5.10) rm KEYS kafka_2.12-2.2.0.tgz kafka_2.12-2.2.0.tgz.asc  
