@@ -49,3 +49,13 @@ Note: In this step replace "y.y.y.y" with the externally facing IP addresss for 
   zookeeper.connect=x.x.x.x:2181  
 7) Start kafka  
 (7.1) ~/kafka/bin/kafka-server-start.sh -daemon ~/kafka/config/server.properties &
+8) Download spark  
+(8.1) wget https://www.apache.org/dist/zookeeper/KEYS  
+(8.2) gpg --import KEYS  
+(8.3) wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5-bin.tar.gz  
+(8.4) wget https://www-eu.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5-bin.tar.gz.asc  
+(8.5) gpg --verify apache-zookeeper-3.5.5-bin.tar.gz.asc apache-zookeeper-3.5.5-bin.tar.gz  
+(8.6) Note: verify that signature is good before proceeding  
+(8.7) tar -xzf apache-zookeeper-3.5.5-bin.tar.gz  
+(8.8) ln -sfn apache-zookeeper-3.5.5-bin zookeeper  
+(8.9) rm KEYS apache-zookeeper-3.5.5-bin.tar.gz apache-zookeeper-3.5.5-bin.tar.gz.asc
