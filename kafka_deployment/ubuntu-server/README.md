@@ -42,8 +42,8 @@ server.1=x.x.x.x:2888:3888
 (6.1) cd ~/kafka/config  
 (6.2) cp server.properties server.properties.orig   
 (6.3) Use your favorite text editor to set the following properties to "server.properties" file  
-(6.4) Note: In this step, replace "x.x.x.x" with the internally facing IP addresss for the server you are ssh'd into  
-(6.5) Note: In this steop replace "y.y.y.y" with the externally facing IP addresss for the server you are ssh'd into  
+Note: In this step, replace "x.x.x.x" with the internally facing IP addresss for the server you are ssh'd into  
+Note: In this steop replace "y.y.y.y" with the externally facing IP addresss for the server you are ssh'd into  
 broker.id=1  
 advertised.listeners=PLAINTEXT://y.y.y.y:9092  
 zookeeper.connect=x.x.x.x:2181  
