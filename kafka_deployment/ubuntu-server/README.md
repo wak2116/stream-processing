@@ -14,14 +14,15 @@ This file documents the installation process to run a standalone kafka + spark s
 (2.8) ln -sfn apache-zookeeper-3.5.5-bin zookeeper  
 (2.9) rm KEYS apache-zookeeper-3.5.5-bin.tar.gz apache-zookeeper-3.5.5-bin.tar.gz.asc  
 3) Configure zookeeper as a standalone instance  
-3.1) sudo mkdir /data/zookeeper/ -p  
+3.1) sudo mkdir /data/zookeeper/ -p
+3.2) Note: In the next step, replace "your_username" with your username  
 3.2) sudo chown -R your_username:your_username /data  
 3.3) touch /data/zookeeper/myid  
 3.4) echo '1' >> /data/zookeeper/myid  
 3.5) cd ~/zookeeper/conf   
 3.6) cp zoo_sample.cfg zoo.cfg   
 3.7) Use your favorite text editor to set the following properties to "zoo.cfg" file  
-[ Note: replace x.x.x.x with the cooresponding IP addresses obtained in Step 5 ]  
+Note: In the step, replace "x.x.x.x" with the internally facing IP addresss for the server you ssh'd into    
 dataDir=/data/zookeeper  
 server.1=x.x.x.x:2888:3888  
 4) Next step
