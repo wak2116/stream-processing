@@ -13,7 +13,7 @@ This file documents the installation process to run a standalone kafka + spark s
 (2.7) tar -xzf apache-zookeeper-3.5.5-bin.tar.gz  
 (2.8) ln -sfn apache-zookeeper-3.5.5-bin zookeeper  
 (2.9) rm KEYS apache-zookeeper-3.5.5-bin.tar.gz apache-zookeeper-3.5.5-bin.tar.gz.asc  
-3) Configure zookeeper as a standalone instance
+3) Configure zookeeper as a standalone instance  
 3.1) sudo mkdir /data/zookeeper/ -p  
 3.2) sudo chown -R your_username:your_username /data  
 3.3) touch /data/zookeeper/myid  
